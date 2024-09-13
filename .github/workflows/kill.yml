@@ -1,0 +1,17 @@
+name: SSH into GitHub Actions
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up tmate session
+      uses: mxschmitt/action-tmate@v3
+
+    - name: Wait for SSH connection
+      run: sleep 1h
